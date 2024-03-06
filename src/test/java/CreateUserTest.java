@@ -20,12 +20,12 @@ public class CreateUserTest {
 
     @Before
     public void setUp() {
-        RestAssured.baseURI = BaseURI.BASE_URI;
         user = Generator.generateUser();
     }
 
     @After
-    public void tearDown() {
+
+    public void cleanUp(){
         UserOperations.deleteUser(accessToken);
     }
 

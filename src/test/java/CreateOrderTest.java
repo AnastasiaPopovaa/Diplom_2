@@ -31,7 +31,6 @@ public class CreateOrderTest {
 
     @Before
     public void setUp() {
-        RestAssured.baseURI = BaseURI.BASE_URI;
         allIngredients = OrderOperations.getAllIngredients();
 
         user = Generator.generateUser();

@@ -22,7 +22,6 @@ public class EditUserTest {
 
     @Before
     public void setUp() {
-        RestAssured.baseURI = BaseURI.BASE_URI;
         user = Generator.generateUser();
         userEditedData = Generator.generateUserEditedData();
     }

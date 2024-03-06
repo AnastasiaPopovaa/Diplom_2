@@ -3,6 +3,7 @@ package order;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import utils.APIs;
+import utils.BaseURI;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ public class OrderOperations {
     @Step
     public static Response getOrdersAuthorizedUser(String accessToken) {
         Response response = given()
+                .spec(BaseURI.requestSpecification())
                 .header("Content-type", "application/json")
                 .and()
                 .header("Authorization", accessToken)
@@ -24,6 +26,7 @@ public class OrderOperations {
     @Step
     public static Response getOrdersUnauthorizedUser() {
         Response response = given()
+                .spec(BaseURI.requestSpecification())
                 .header("Content-type", "application/json")
                 .when()
                 .get(APIs.ORDERS_PATH);
@@ -33,6 +36,7 @@ public class OrderOperations {
     @Step
     public static Response createOrder(String accessToken, Order order) {
         Response response = given()
+                .spec(BaseURI.requestSpecification())
                 .header("Content-type", "application/json")
                 .and()
                 .header("Authorization", accessToken)
@@ -46,6 +50,7 @@ public class OrderOperations {
     @Step
     public static Response createOrderWithoutAuth(Order order) {
         Response response = given()
+                .spec(BaseURI.requestSpecification())
                 .header("Content-type", "application/json")
                 .and()
                 .body(order)
@@ -57,6 +62,7 @@ public class OrderOperations {
     @Step
     public static List<String> getAllIngredients() {
         List<String> allIngredients = given()
+                .spec(BaseURI.requestSpecification())
                 .header("Content-type", "application/json")
                 .when()
                 .get(APIs.INGREDIENTS_PATH)

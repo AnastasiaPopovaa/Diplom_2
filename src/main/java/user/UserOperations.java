@@ -3,6 +3,7 @@ package user;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import utils.APIs;
+import utils.BaseURI;
 
 import static io.restassured.RestAssured.given;
 
@@ -11,6 +12,7 @@ public class UserOperations {
     @Step("Create an user")
     public static Response createUser(User user) {
         Response response = given()
+                .spec(BaseURI.requestSpecification())
                 .header("Content-type", "application/json")
                 .and()
                 .body(user)
@@ -22,6 +24,7 @@ public class UserOperations {
     @Step("Log in an user")
     public static Response logInUser(User user) {
         Response response = given()
+                .spec(BaseURI.requestSpecification())
                 .header("Content-type", "application/json")
                 .and()
                 .body(user)
@@ -34,14 +37,17 @@ public class UserOperations {
     public static void deleteUser(String accessToken) {
         if (accessToken != null)
             given()
+                    .spec(BaseURI.requestSpecification())
                     .header("Authorization", accessToken)
                     .when()
                     .delete(APIs.USER_PATH);
+
     }
 
     @Step("Edit an authorized user")
     public static Response editAuthorizedUser(String accessToken, UserEditedData userEditedData) {
         Response response = given()
+                .spec(BaseURI.requestSpecification())
                 .header("Content-type", "application/json")
                 .and()
                 .header("Authorization", accessToken)
@@ -55,6 +61,7 @@ public class UserOperations {
     @Step("Edit an unauthorized user")
     public static Response editUnauthorizedUser(String accessToken, UserEditedData userEditedData) {
         Response response = given()
+                .spec(BaseURI.requestSpecification())
                 .header("Content-type", "application/json")
                 .and()
                 .body(userEditedData)
