@@ -1,5 +1,4 @@
 import io.qameta.allure.junit4.DisplayName;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import order.OrderOperations;
 import org.apache.http.HttpStatus;
@@ -8,7 +7,6 @@ import org.junit.Before;
 import org.junit.Test;
 import user.User;
 import user.UserOperations;
-import utils.BaseURI;
 import utils.Generator;
 
 import static org.hamcrest.CoreMatchers.equalTo;

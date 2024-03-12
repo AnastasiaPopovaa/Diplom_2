@@ -1,5 +1,4 @@
 import io.qameta.allure.junit4.DisplayName;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.http.HttpStatus;
@@ -9,7 +8,6 @@ import org.junit.Test;
 import user.User;
 import utils.Generator;
 import user.UserOperations;
-import utils.BaseURI;
 
 import static org.hamcrest.CoreMatchers.*;
 

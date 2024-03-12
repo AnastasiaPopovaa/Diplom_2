@@ -1,5 +1,4 @@
 import io.qameta.allure.junit4.DisplayName;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import order.Order;
 import order.OrderOperations;
@@ -10,7 +9,6 @@ import org.junit.Before;
 import org.junit.Test;
 import user.User;
 import user.UserOperations;
-import utils.BaseURI;
 import utils.Generator;
 
 import java.util.ArrayList;
